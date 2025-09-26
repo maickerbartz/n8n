@@ -1,6 +1,6 @@
-# n8n com Docker
+# n8n e Ollama com Docker
 
-Este projeto configura e executa uma instância do n8n utilizando Docker e Docker Compose.
+Este projeto configura e executa instâncias do n8n e do Ollama utilizando Docker e Docker Compose, com arquivos de configuração separados para cada serviço.
 
 ## Pré-requisitos
 
@@ -9,26 +9,52 @@ Este projeto configura e executa uma instância do n8n utilizando Docker e Docke
 
 ## Como Executar
 
-1.  **Inicie o Docker Desktop:** Antes de executar os comandos, certifique-se de que o Docker Desktop está em execução na sua máquina.
+Certifique-se de que o Docker Desktop está em execução antes de rodar os comandos.
 
-2.  **Inicie o n8n:** Abra um terminal na raiz deste projeto e execute o seguinte comando para iniciar o container do n8n em modo detached (em segundo plano):
+### n8n
 
+1.  **Iniciar o n8n:**
     ```bash
-    docker compose up -d
+    docker-compose -f n8n.yml up -d
     ```
 
-## Acessando o n8n
+2.  **Acessar o n8n:**
+    - **URL:** [http://localhost:5678](http://localhost:5678)
+    - **Usuário:** `admin`
+    - **Senha:** `admin`
 
-Após a inicialização do container, você pode acessar a interface do n8n no seu navegador:
+3.  **Parar o n8n:**
+    ```bash
+    docker-compose -f n8n.yml down
+    ```
 
-- **URL:** [http://localhost:5678](http://localhost:5678)
-- **Usuário:** `admin`
-- **Senha:** `admin`
+### Ollama
 
-## Como Parar
+1.  **Iniciar o Ollama:**
+    ```bash
+    docker-compose -f ollama.yml up -d
+    ```
 
-Para parar o container do n8n, execute o seguinte comando no terminal:
+2.  **Acessar a Interface Web do Ollama:**
+    - **URL:** [http://localhost:3000](http://localhost:3000)
 
-```bash
-docker compose down
-```
+3.  **Baixar Modelos de LLM:**
+    Após iniciar o Ollama, abra outro terminal e execute os seguintes comandos para baixar os modelos desejados:
+
+    - **DeepSeek Coder V2:**
+      ```bash
+      docker exec -it ollama ollama pull deepseek-coder-v2
+      ```
+    - **Gemma 2:**
+      ```bash
+      docker exec -it ollama ollama pull gemma2
+      ```
+    - **LLaMA 3.1:**
+      ```bash
+      docker exec -it ollama ollama pull llama3.1
+      ```
+
+4.  **Parar o Ollama:**
+    ```bash
+    docker-compose -f ollama.yml down
+    ```
