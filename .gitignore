@@ -1,0 +1,14 @@
+# Ambientes Virtuais
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+
+# Dados de Serviços Docker
+n8n_data/
+data/
+
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
