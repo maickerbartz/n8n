@@ -41,17 +41,17 @@ Certifique-se de que o Docker Desktop está em execução antes de rodar os coma
 3.  **Baixar Modelos de LLM:**
     Após iniciar o Ollama, abra outro terminal e execute os seguintes comandos para baixar os modelos desejados:
 
-    - **DeepSeek Coder V2:**
+    - **DeepSeek R1:**
       ```bash
-      docker exec -it ollama ollama pull deepseek-coder-v2
+      docker exec -it ollama ollama pull deepseek-r1
       ```
-    - **Gemma 2:**
+    - **Gemma 3:**
       ```bash
-      docker exec -it ollama ollama pull gemma2
+      docker exec -it ollama ollama pull gemma3
       ```
-    - **LLaMA 3.1:**
+    - **LLaMA 3.2:**
       ```bash
-      docker exec -it ollama ollama pull llama3.1
+      docker exec -it ollama ollama pull llama3.2
       ```
 
 4.  **Parar o Ollama:**
